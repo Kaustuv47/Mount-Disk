@@ -51,7 +51,7 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>on run {input}	tell application "System Events" to set diskNames to name of every disk	set diskIdentifier to (do shell script "diskutil info 'Backups' |grep Node")	set diskIdentifier to text -12 thru -1 of diskIdentifier	if "Backups" is not in diskNames then		do shell script "diskutil mount " &amp; diskIdentifier	end if		repeat		tell application "Finder"			set w to (name of every window)		end tell		try			if w contains "Backups" then				exit repeat			else				-- Start				tell application "Finder"					activate					if window 1 exists then						set target of window 1 to ("/Volumes/Backups" as POSIX file)					end if				end tell				-- End			end if		end try	end repeat		if input is equal to {} then		tell me to quit	else		return input	end if	end run</string>
+					<string>on run {input}	tell application "System Events" to set diskNames to name of every disk	set diskIdentifier to (do shell script "diskutil info 'Miscellanous' |grep Node")	set diskIdentifier to text -12 thru -1 of diskIdentifier	if "Miscellaneous" is not in diskNames then		do shell script "diskutil mount " &amp; diskIdentifier	end if		repeat		tell application "Finder"			set w to (name of every window)		end tell		try			if w contains "Miscellanous" then				exit repeat			else				-- Start				tell application "Finder"					activate					if window 1 exists then						set target of window 1 to ("/Volumes/Miscellanous" as POSIX file)					end if				end tell				-- End			end if		end try	end repeat	if input is equal to {} then		tell me to quit	else		return input	end ifend run</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
@@ -68,15 +68,15 @@
 				<key>Class Name</key>
 				<string>RunScriptAction</string>
 				<key>InputUUID</key>
-				<string>ACFF9AD2-624E-4E00-8B9B-45C04D4C2EC9</string>
+				<string>8300D218-BF53-41D6-97DC-E3525B26C54D</string>
 				<key>Keywords</key>
 				<array>
 					<string>Run</string>
 				</array>
 				<key>OutputUUID</key>
-				<string>589F495A-6761-42C6-B579-BCC564356F1D</string>
+				<string>95406666-535D-4625-A58F-0F820E0EBA87</string>
 				<key>UUID</key>
-				<string>2E10326F-A023-408F-BDA2-B62F83E6AF1B</string>
+				<string>10A1F033-AE21-47D8-8203-8F939CA06F31</string>
 				<key>UnlocalizedApplications</key>
 				<array>
 					<string>Automator</string>
@@ -120,6 +120,77 @@ end run</string>
 					<key>Container</key>
 					<string>List</string>
 					<key>Optional</key>
+					<true/>
+					<key>Types</key>
+					<array>
+						<string>com.apple.cocoa.path</string>
+					</array>
+				</dict>
+				<key>AMActionVersion</key>
+				<string>2.1.1</string>
+				<key>AMApplication</key>
+				<array>
+					<string>Finder</string>
+				</array>
+				<key>AMParameterProperties</key>
+				<dict/>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array>
+						<string>com.apple.cocoa.path</string>
+					</array>
+				</dict>
+				<key>AMRequiredResources</key>
+				<array/>
+				<key>ActionBundlePath</key>
+				<string>/System/Library/Automator/Get Selected Finder Items 2.action</string>
+				<key>ActionName</key>
+				<string>Get Selected Finder Items</string>
+				<key>ActionParameters</key>
+				<dict/>
+				<key>BundleIdentifier</key>
+				<string>com.apple.Automator.GetSelectedFinderItems2</string>
+				<key>CFBundleVersion</key>
+				<string>2.1.1</string>
+				<key>CanShowSelectedItemsWhenRun</key>
+				<false/>
+				<key>CanShowWhenRun</key>
+				<true/>
+				<key>Category</key>
+				<array>
+					<string>AMCategoryFilesAndFolders</string>
+				</array>
+				<key>Class Name</key>
+				<string>AMGetSelectedFinderItemsAction</string>
+				<key>InputUUID</key>
+				<string>17A7E349-3CA8-4EC4-A561-6FEC9E625120</string>
+				<key>Keywords</key>
+				<array/>
+				<key>OutputUUID</key>
+				<string>6E61ACAD-A107-4277-8554-B55016247487</string>
+				<key>UUID</key>
+				<string>050CB336-FFA9-417B-993E-B9D0D3A75EA5</string>
+				<key>UnlocalizedApplications</key>
+				<array>
+					<string>Finder</string>
+				</array>
+				<key>arguments</key>
+				<dict/>
+				<key>conversionLabel</key>
+				<integer>0</integer>
+			</dict>
+		</dict>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
 					<false/>
 					<key>Types</key>
 					<array>
@@ -127,7 +198,7 @@ end run</string>
 					</array>
 				</dict>
 				<key>AMActionVersion</key>
-				<string>2.0.1</string>
+				<string>1.1.2</string>
 				<key>AMApplication</key>
 				<array>
 					<string>Finder</string>
@@ -154,20 +225,20 @@ end run</string>
 					</array>
 				</dict>
 				<key>ActionBundlePath</key>
-				<string>/System/Library/Automator/Copy Finder Items.action</string>
+				<string>/System/Library/Automator/Move Finder Items.action</string>
 				<key>ActionName</key>
-				<string>Copy Finder Items</string>
+				<string>Move Finder Items</string>
 				<key>ActionParameters</key>
 				<dict>
 					<key>replaceExisting</key>
-					<true/>
+					<false/>
 					<key>toDirectory</key>
-					<string>/Volumes/Backups</string>
+					<string>/Volumes/Miscellanous</string>
 				</dict>
 				<key>BundleIdentifier</key>
-				<string>com.apple.Automator.CopyFiles</string>
+				<string>com.apple.Automator.MoveFiles</string>
 				<key>CFBundleVersion</key>
-				<string>2.0.1</string>
+				<string>1.1.2</string>
 				<key>CanShowSelectedItemsWhenRun</key>
 				<true/>
 				<key>CanShowWhenRun</key>
@@ -177,18 +248,18 @@ end run</string>
 					<string>AMCategoryFilesAndFolders</string>
 				</array>
 				<key>Class Name</key>
-				<string>AMCopyFilesAction</string>
+				<string>MoveFilesAction</string>
 				<key>InputUUID</key>
-				<string>4D0C6578-5495-4B89-95F1-909F60425FB6</string>
+				<string>CA30BB63-F5B9-4E2F-A738-7444ADE1052F</string>
 				<key>Keywords</key>
 				<array>
 					<string>File</string>
-					<string>Copy</string>
+					<string>Move</string>
 				</array>
 				<key>OutputUUID</key>
-				<string>2D743748-E400-4E1E-8EA6-B84967B6C9B9</string>
+				<string>18014768-B21C-4800-A2CA-330D87541A53</string>
 				<key>UUID</key>
-				<string>22DF1828-5440-4F25-86C4-C788B92AAEE2</string>
+				<string>8EC13126-AF31-43BC-96D9-B79D444BA28C</string>
 				<key>UnlocalizedApplications</key>
 				<array>
 					<string>Finder</string>
@@ -222,12 +293,14 @@ end run</string>
 						<string>1</string>
 					</dict>
 				</dict>
+				<key>conversionLabel</key>
+				<integer>0</integer>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>308.500000:419.000000</string>
+				<string>308.500000:485.000000</string>
 				<key>nibPath</key>
-				<string>/System/Library/Automator/Copy Finder Items.action/Contents/Resources/Base.lproj/main.nib</string>
+				<string>/System/Library/Automator/Move Finder Items.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
 			<key>isViewVisible</key>
 			<true/>
@@ -235,12 +308,19 @@ end run</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>FEBC9F9C-6BF6-466F-A05B-7D0956B204CE</key>
+		<key>0AAA5283-FBF3-4233-88B6-17AEF81BE172</key>
 		<dict>
 			<key>from</key>
-			<string>2E10326F-A023-408F-BDA2-B62F83E6AF1B - 2E10326F-A023-408F-BDA2-B62F83E6AF1B</string>
+			<string>10A1F033-AE21-47D8-8203-8F939CA06F31 - 10A1F033-AE21-47D8-8203-8F939CA06F31</string>
 			<key>to</key>
-			<string>22DF1828-5440-4F25-86C4-C788B92AAEE2 - 22DF1828-5440-4F25-86C4-C788B92AAEE2</string>
+			<string>050CB336-FFA9-417B-993E-B9D0D3A75EA5 - 050CB336-FFA9-417B-993E-B9D0D3A75EA5</string>
+		</dict>
+		<key>A9483A1E-2B01-4AB4-A48C-26E7A1D716E5</key>
+		<dict>
+			<key>from</key>
+			<string>050CB336-FFA9-417B-993E-B9D0D3A75EA5 - 050CB336-FFA9-417B-993E-B9D0D3A75EA5</string>
+			<key>to</key>
+			<string>8EC13126-AF31-43BC-96D9-B79D444BA28C - 8EC13126-AF31-43BC-96D9-B79D444BA28C</string>
 		</dict>
 	</dict>
 	<key>workflowMetaData</key>
