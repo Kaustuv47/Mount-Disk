@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AMApplicationBuild</key>
+	<string>444.42</string>
+	<key>AMApplicationVersion</key>
+	<string>2.9</string>
+	<key>AMDocumentVersion</key>
+	<string>2</string>
+	<key>actions</key>
+	<array>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
+					<true/>
+					<key>Types</key>
+					<array>
+						<string>com.apple.applescript.object</string>
+					</array>
+				</dict>
+				<key>AMActionVersion</key>
+				<string>1.0.2</string>
+				<key>AMApplication</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>AMParameterProperties</key>
+				<dict>
+					<key>source</key>
+					<dict/>
+				</dict>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array>
+						<string>com.apple.applescript.object</string>
+					</array>
+				</dict>
+				<key>ActionBundlePath</key>
+				<string>/System/Library/Automator/Run AppleScript.action</string>
+				<key>ActionName</key>
+				<string>Run AppleScript</string>
+				<key>ActionParameters</key>
+				<dict>
+					<key>source</key>
+					<string>on run {input, parameters}	set choice to choose from list {"Installer", "Multimedia", "Extra", "Study", "Backups"} with title "Volume Mounter" with prompt "Choose Volume" default items "Installer" with multiple selections allowed	if choice is equal to "Installer" then		set volumeName to "Installer"		set volumeInfo to do shell script "diskutil list | grep \"" &amp; volumeName &amp; "\""		set volumeNode to last word of volumeInfo		set output to do shell script "diskutil mount " &amp; volumeNode &amp; ""			else if choice is equal to "Multimedia" then		set volumeName to "Multimedia"		set volumeInfo to do shell script "diskutil list | grep \"" &amp; volumeName &amp; "\""		set volumeNode to last word of volumeInfo		set output to do shell script "diskutil mount " &amp; volumeNode &amp; ""			else if choice is equal to "Extra" then		set volumeName to "Extra"		set volumeInfo to do shell script "diskutil list | grep \"" &amp; volumeName &amp; "\""		set volumeNode to last word of volumeInfo		set output to do shell script "diskutil mount " &amp; volumeNode &amp; ""			else if choice is equal to "Study" then		set volumeName to "Study"		set volumeInfo to do shell script "diskutil list | grep \"" &amp; volumeName &amp; "\""		set volumeNode to last word of volumeInfo		set output to do shell script "diskutil mount " &amp; volumeNode &amp; ""			else if choice is equal to "Backups" then		set volumeName to "Backups"		set volumeInfo to do shell script "diskutil list | grep \"" &amp; volumeName &amp; "\""		set volumeNode to last word of volumeInfo		set output to do shell script "diskutil mount " &amp; volumeNode &amp; ""			else if choice is equal to "Windows" then		set volumeName to "Windows"		set volumeInfo to do shell script "diskutil list | grep \"" &amp; volumeName &amp; "\""		set volumeNode to last word of volumeInfo		set output to do shell script "diskutil mount " &amp; volumeNode &amp; ""			else if choice is equal to "Install macOS Mojave" then		set volumeName to "Install macOS Mojave"		set volumeInfo to do shell script "diskutil list | grep \"" &amp; volumeName &amp; "\""		set volumeNode to last word of volumeInfo		set output to do shell script "diskutil mount " &amp; volumeNode &amp; ""			else if choice is equal to "Install macOS High Sierra" then		set volumeName to "Install macOS High Sierra"		set volumeInfo to do shell script "diskutil list | grep \"" &amp; volumeName &amp; "\""		set volumeNode to last word of volumeInfo		set output to do shell script "diskutil mount " &amp; volumeNode &amp; ""	end ifend run</string>
+				</dict>
+				<key>BundleIdentifier</key>
+				<string>com.apple.Automator.RunScript</string>
+				<key>CFBundleVersion</key>
+				<string>1.0.2</string>
+				<key>CanShowSelectedItemsWhenRun</key>
+				<false/>
+				<key>CanShowWhenRun</key>
+				<true/>
+				<key>Category</key>
+				<array>
+					<string>AMCategoryUtilities</string>
+				</array>
+				<key>Class Name</key>
+				<string>RunScriptAction</string>
+				<key>InputUUID</key>
+				<string>0A9DAD82-47B9-4F90-9FBF-E6EC9E3D7EAC</string>
+				<key>Keywords</key>
+				<array>
+					<string>Run</string>
+				</array>
+				<key>OutputUUID</key>
+				<string>43FC7B9D-55CE-4382-B80B-27B63E249682</string>
+				<key>UUID</key>
+				<string>8771BCC5-553D-4798-A5E3-318ACCD16F53</string>
+				<key>UnlocalizedApplications</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>arguments</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>default value</key>
+						<string>on run {input, parameters}
+	
+	(* Your script goes here *)
+	
+	return input
+end run</string>
+						<key>name</key>
+						<string>source</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>0</string>
+					</dict>
+				</dict>
+				<key>isViewVisible</key>
+				<true/>
+				<key>location</key>
+				<string>319.000000:534.000000</string>
+				<key>nibPath</key>
+				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
+			</dict>
+			<key>isViewVisible</key>
+			<true/>
+		</dict>
+	</array>
+	<key>connectors</key>
+	<dict/>
+	<key>workflowMetaData</key>
+	<dict>
+		<key>applicationBundleID</key>
+		<string>com.apple.finder</string>
+		<key>applicationBundleIDsByPath</key>
+		<dict>
+			<key>/System/Library/CoreServices/Finder.app</key>
+			<string>com.apple.finder</string>
+		</dict>
+		<key>applicationPath</key>
+		<string>/System/Library/CoreServices/Finder.app</string>
+		<key>applicationPaths</key>
+		<array>
+			<string>/System/Library/CoreServices/Finder.app</string>
+		</array>
+		<key>inputTypeIdentifier</key>
+		<string>com.apple.Automator.nothing</string>
+		<key>outputTypeIdentifier</key>
+		<string>com.apple.Automator.nothing</string>
+		<key>presentationMode</key>
+		<integer>11</integer>
+		<key>processesInput</key>
+		<integer>0</integer>
+		<key>serviceApplicationBundleID</key>
+		<string>com.apple.finder</string>
+		<key>serviceApplicationPath</key>
+		<string>/System/Library/CoreServices/Finder.app</string>
+		<key>serviceInputTypeIdentifier</key>
+		<string>com.apple.Automator.nothing</string>
+		<key>serviceOutputTypeIdentifier</key>
+		<string>com.apple.Automator.nothing</string>
+		<key>serviceProcessesInput</key>
+		<integer>0</integer>
+		<key>systemImageName</key>
+		<string>NSActionTemplate</string>
+		<key>useAutomaticInputType</key>
+		<integer>0</integer>
+		<key>workflowTypeIdentifier</key>
+		<string>com.apple.Automator.servicesMenu</string>
+	</dict>
+</dict>
+</plist>
