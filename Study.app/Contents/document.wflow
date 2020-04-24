@@ -51,7 +51,7 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>on run {input, parameters}	set volumeName to "Study"	set volumeInfo to do shell script "diskutil list | grep \"" &amp; volumeName &amp; "\""	set volumeNode to last word of volumeInfo	set wait to do shell script "diskutil mount " &amp; volumeNode &amp; ""		if input is equal to {} then		tell me to quit	else		return input	end ifend run</string>
+					<string>on run {input, parameters}	set volumeName to "Backups"	set volumeInfo to do shell script "diskutil list | grep \"" &amp; volumeName &amp; "\""	set volumeNode to last word of volumeInfo	set wait to do shell script "diskutil mount " &amp; volumeNode &amp; ""		tell application "System Events"		set windowtitle to the title of every window of process "Finder"	end tell	tell application "Finder"		activate		if "Installer" is in windowtitle then			set target of window "Installer" to "Installer"		else			make new Finder window to "Installer"		end if	end tell		if input is equal to {} then		tell me to quit	else		return input	end ifend run</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
@@ -127,7 +127,7 @@ end run</string>
 					</array>
 				</dict>
 				<key>AMActionVersion</key>
-				<string>2.0.1</string>
+				<string>1.1.2</string>
 				<key>AMApplication</key>
 				<array>
 					<string>Finder</string>
@@ -154,9 +154,9 @@ end run</string>
 					</array>
 				</dict>
 				<key>ActionBundlePath</key>
-				<string>/System/Library/Automator/Copy Finder Items.action</string>
+				<string>/System/Library/Automator/Move Finder Items.action</string>
 				<key>ActionName</key>
-				<string>Copy Finder Items</string>
+				<string>Move Finder Items</string>
 				<key>ActionParameters</key>
 				<dict>
 					<key>replaceExisting</key>
@@ -165,9 +165,9 @@ end run</string>
 					<string>/Volumes/Study</string>
 				</dict>
 				<key>BundleIdentifier</key>
-				<string>com.apple.Automator.CopyFiles</string>
+				<string>com.apple.Automator.MoveFiles</string>
 				<key>CFBundleVersion</key>
-				<string>2.0.1</string>
+				<string>1.1.2</string>
 				<key>CanShowSelectedItemsWhenRun</key>
 				<true/>
 				<key>CanShowWhenRun</key>
@@ -177,18 +177,18 @@ end run</string>
 					<string>AMCategoryFilesAndFolders</string>
 				</array>
 				<key>Class Name</key>
-				<string>AMCopyFilesAction</string>
+				<string>MoveFilesAction</string>
 				<key>InputUUID</key>
-				<string>79B3C53C-6E07-4193-9187-F07B6C5868E4</string>
+				<string>8A896572-C118-46FF-8CC2-39B211333F4E</string>
 				<key>Keywords</key>
 				<array>
 					<string>File</string>
-					<string>Copy</string>
+					<string>Move</string>
 				</array>
 				<key>OutputUUID</key>
-				<string>CDACA0DD-035E-40F0-8625-DBE634E0A002</string>
+				<string>F9FDFCDB-7193-47EB-8258-FDA63B11DC11</string>
 				<key>UUID</key>
-				<string>478E7FDC-0025-4C23-B1AA-2CE2B0FB7FB8</string>
+				<string>3C44DD30-CB0E-46BA-ADA9-14659DD7F97D</string>
 				<key>UnlocalizedApplications</key>
 				<array>
 					<string>Finder</string>
@@ -222,12 +222,14 @@ end run</string>
 						<string>1</string>
 					</dict>
 				</dict>
+				<key>conversionLabel</key>
+				<integer>0</integer>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
 				<string>319.000000:417.000000</string>
 				<key>nibPath</key>
-				<string>/System/Library/Automator/Copy Finder Items.action/Contents/Resources/Base.lproj/main.nib</string>
+				<string>/System/Library/Automator/Move Finder Items.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
 			<key>isViewVisible</key>
 			<true/>
@@ -235,12 +237,12 @@ end run</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>036474F6-86DF-4785-B104-67FEA427FB50</key>
+		<key>B042A304-0989-486D-BFEC-F72AF671DA05</key>
 		<dict>
 			<key>from</key>
 			<string>4CF480B2-43A9-4B51-8B99-FB46B2AAF1E5 - 4CF480B2-43A9-4B51-8B99-FB46B2AAF1E5</string>
 			<key>to</key>
-			<string>478E7FDC-0025-4C23-B1AA-2CE2B0FB7FB8 - 478E7FDC-0025-4C23-B1AA-2CE2B0FB7FB8</string>
+			<string>3C44DD30-CB0E-46BA-ADA9-14659DD7F97D - 3C44DD30-CB0E-46BA-ADA9-14659DD7F97D</string>
 		</dict>
 	</dict>
 	<key>workflowMetaData</key>

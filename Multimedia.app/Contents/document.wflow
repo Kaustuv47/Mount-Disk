@@ -51,7 +51,7 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>on run {input, parameters}	set volumeName to "Multimedia"	set volumeInfo to do shell script "diskutil list | grep \"" &amp; volumeName &amp; "\""	set volumeNode to last word of volumeInfo	set wait to do shell script "diskutil mount " &amp; volumeNode &amp; ""		if input is equal to {} then		tell me to quit	else		return input	end ifend run</string>
+					<string>on run {input, parameters}	set volumeName to "Multimedia"	set volumeInfo to do shell script "diskutil list | grep \"" &amp; volumeName &amp; "\""	set volumeNode to last word of volumeInfo	set wait to do shell script "diskutil mount " &amp; volumeNode &amp; ""		tell application "System Events"		set windowtitle to the title of every window of process "Finder"	end tell	tell application "Finder"		activate		if "Installer" is in windowtitle then			set target of window "Installer" to "Installer"		else			make new Finder window to "Installer"		end if	end tell		if input is equal to {} then		tell me to quit	else		return input	end ifend run</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
@@ -127,7 +127,7 @@ end run</string>
 					</array>
 				</dict>
 				<key>AMActionVersion</key>
-				<string>2.0.1</string>
+				<string>1.1.2</string>
 				<key>AMApplication</key>
 				<array>
 					<string>Finder</string>
@@ -154,9 +154,9 @@ end run</string>
 					</array>
 				</dict>
 				<key>ActionBundlePath</key>
-				<string>/System/Library/Automator/Copy Finder Items.action</string>
+				<string>/System/Library/Automator/Move Finder Items.action</string>
 				<key>ActionName</key>
-				<string>Copy Finder Items</string>
+				<string>Move Finder Items</string>
 				<key>ActionParameters</key>
 				<dict>
 					<key>replaceExisting</key>
@@ -165,9 +165,9 @@ end run</string>
 					<string>/Volumes/Multimedia</string>
 				</dict>
 				<key>BundleIdentifier</key>
-				<string>com.apple.Automator.CopyFiles</string>
+				<string>com.apple.Automator.MoveFiles</string>
 				<key>CFBundleVersion</key>
-				<string>2.0.1</string>
+				<string>1.1.2</string>
 				<key>CanShowSelectedItemsWhenRun</key>
 				<true/>
 				<key>CanShowWhenRun</key>
@@ -177,18 +177,18 @@ end run</string>
 					<string>AMCategoryFilesAndFolders</string>
 				</array>
 				<key>Class Name</key>
-				<string>AMCopyFilesAction</string>
+				<string>MoveFilesAction</string>
 				<key>InputUUID</key>
-				<string>3242D782-978F-4806-8B65-2D7F5F426288</string>
+				<string>82EE0C84-EA41-4BB5-A6E0-EAE895BE4489</string>
 				<key>Keywords</key>
 				<array>
 					<string>File</string>
-					<string>Copy</string>
+					<string>Move</string>
 				</array>
 				<key>OutputUUID</key>
-				<string>E9FDB914-CB9F-4F47-A6ED-61B5DF77AFB2</string>
+				<string>498EA0EC-91F6-495C-9BF6-CBA449D46F14</string>
 				<key>UUID</key>
-				<string>6F60653D-BC85-4607-AB61-CEBD243A3327</string>
+				<string>48A2272A-98F3-418F-B7B0-DB1C7BBAC0F1</string>
 				<key>UnlocalizedApplications</key>
 				<array>
 					<string>Finder</string>
@@ -227,7 +227,7 @@ end run</string>
 				<key>location</key>
 				<string>319.000000:417.000000</string>
 				<key>nibPath</key>
-				<string>/System/Library/Automator/Copy Finder Items.action/Contents/Resources/Base.lproj/main.nib</string>
+				<string>/System/Library/Automator/Move Finder Items.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
 			<key>isViewVisible</key>
 			<true/>
@@ -235,12 +235,12 @@ end run</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>616B8AC4-6F23-4E45-96CC-8C2AD6E942F2</key>
+		<key>B8066F6C-566A-417F-8609-877A4CE2F195</key>
 		<dict>
 			<key>from</key>
 			<string>BE4783F9-F22D-408A-A501-6AD200B490CA - BE4783F9-F22D-408A-A501-6AD200B490CA</string>
 			<key>to</key>
-			<string>6F60653D-BC85-4607-AB61-CEBD243A3327 - 6F60653D-BC85-4607-AB61-CEBD243A3327</string>
+			<string>48A2272A-98F3-418F-B7B0-DB1C7BBAC0F1 - 48A2272A-98F3-418F-B7B0-DB1C7BBAC0F1</string>
 		</dict>
 	</dict>
 	<key>workflowMetaData</key>

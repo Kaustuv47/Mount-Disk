@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>AMApplicationBuild</key>
-	<string>444.7</string>
+	<string>444.42</string>
 	<key>AMApplicationVersion</key>
-	<string>2.8</string>
+	<string>2.9</string>
 	<key>AMDocumentVersion</key>
 	<string>2</string>
 	<key>actions</key>
@@ -51,7 +51,7 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>on run {input}	tell application "System Events" to set diskNames to name of every disk	set diskIdentifier to (do shell script "diskutil info 'Miscellanous' |grep Node")	set diskIdentifier to text -12 thru -1 of diskIdentifier	if "Miscellaneous" is not in diskNames then		do shell script "diskutil mount " &amp; diskIdentifier	end if		repeat		tell application "Finder"			set w to (name of every window)		end tell		try			if w contains "Miscellanous" then				exit repeat			else				-- Start				tell application "Finder"					activate					if window 1 exists then						set target of window 1 to ("/Volumes/Miscellanous" as POSIX file)					end if				end tell				-- End			end if		end try	end repeat	if input is equal to {} then		tell me to quit	else		return input	end ifend run</string>
+					<string>on run {input, parameters}	set volumeName to "Extra"	set volumeInfo to do shell script "diskutil list | grep \"" &amp; volumeName &amp; "\""	set volumeNode to last word of volumeInfo	set wait to do shell script "diskutil mount " &amp; volumeNode &amp; ""		tell application "System Events"		set windowtitle to the title of every window of process "Finder"	end tell	tell application "Finder"		activate		if "Installer" is in windowtitle then			set target of window "Installer" to "Installer"		else			make new Finder window to "Installer"		end if	end tell		if input is equal to {} then		tell me to quit	else		return input	end ifend run</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
@@ -105,83 +105,12 @@ end run</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>308.500000:316.000000</string>
+				<string>319.000000:512.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
 			<key>isViewVisible</key>
 			<true/>
-		</dict>
-		<dict>
-			<key>action</key>
-			<dict>
-				<key>AMAccepts</key>
-				<dict>
-					<key>Container</key>
-					<string>List</string>
-					<key>Optional</key>
-					<true/>
-					<key>Types</key>
-					<array>
-						<string>com.apple.cocoa.path</string>
-					</array>
-				</dict>
-				<key>AMActionVersion</key>
-				<string>2.1.1</string>
-				<key>AMApplication</key>
-				<array>
-					<string>Finder</string>
-				</array>
-				<key>AMParameterProperties</key>
-				<dict/>
-				<key>AMProvides</key>
-				<dict>
-					<key>Container</key>
-					<string>List</string>
-					<key>Types</key>
-					<array>
-						<string>com.apple.cocoa.path</string>
-					</array>
-				</dict>
-				<key>AMRequiredResources</key>
-				<array/>
-				<key>ActionBundlePath</key>
-				<string>/System/Library/Automator/Get Selected Finder Items 2.action</string>
-				<key>ActionName</key>
-				<string>Get Selected Finder Items</string>
-				<key>ActionParameters</key>
-				<dict/>
-				<key>BundleIdentifier</key>
-				<string>com.apple.Automator.GetSelectedFinderItems2</string>
-				<key>CFBundleVersion</key>
-				<string>2.1.1</string>
-				<key>CanShowSelectedItemsWhenRun</key>
-				<false/>
-				<key>CanShowWhenRun</key>
-				<true/>
-				<key>Category</key>
-				<array>
-					<string>AMCategoryFilesAndFolders</string>
-				</array>
-				<key>Class Name</key>
-				<string>AMGetSelectedFinderItemsAction</string>
-				<key>InputUUID</key>
-				<string>17A7E349-3CA8-4EC4-A561-6FEC9E625120</string>
-				<key>Keywords</key>
-				<array/>
-				<key>OutputUUID</key>
-				<string>6E61ACAD-A107-4277-8554-B55016247487</string>
-				<key>UUID</key>
-				<string>050CB336-FFA9-417B-993E-B9D0D3A75EA5</string>
-				<key>UnlocalizedApplications</key>
-				<array>
-					<string>Finder</string>
-				</array>
-				<key>arguments</key>
-				<dict/>
-				<key>conversionLabel</key>
-				<integer>0</integer>
-			</dict>
 		</dict>
 		<dict>
 			<key>action</key>
@@ -233,7 +162,7 @@ end run</string>
 					<key>replaceExisting</key>
 					<false/>
 					<key>toDirectory</key>
-					<string>/Volumes/Miscellanous</string>
+					<string>/Volumes/Extra</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.MoveFiles</string>
@@ -293,12 +222,10 @@ end run</string>
 						<string>1</string>
 					</dict>
 				</dict>
-				<key>conversionLabel</key>
-				<integer>0</integer>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>308.500000:485.000000</string>
+				<string>319.000000:614.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Move Finder Items.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -308,17 +235,10 @@ end run</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>0AAA5283-FBF3-4233-88B6-17AEF81BE172</key>
+		<key>B3099B3A-E00E-4F65-91FF-92E33352CBD9</key>
 		<dict>
 			<key>from</key>
 			<string>10A1F033-AE21-47D8-8203-8F939CA06F31 - 10A1F033-AE21-47D8-8203-8F939CA06F31</string>
-			<key>to</key>
-			<string>050CB336-FFA9-417B-993E-B9D0D3A75EA5 - 050CB336-FFA9-417B-993E-B9D0D3A75EA5</string>
-		</dict>
-		<key>A9483A1E-2B01-4AB4-A48C-26E7A1D716E5</key>
-		<dict>
-			<key>from</key>
-			<string>050CB336-FFA9-417B-993E-B9D0D3A75EA5 - 050CB336-FFA9-417B-993E-B9D0D3A75EA5</string>
 			<key>to</key>
 			<string>8EC13126-AF31-43BC-96D9-B79D444BA28C - 8EC13126-AF31-43BC-96D9-B79D444BA28C</string>
 		</dict>
